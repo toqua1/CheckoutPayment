@@ -2,16 +2,22 @@ import 'package:checkout_payment/Features/checkout/presentation/views/widgets/pa
 import 'package:checkout_payment/Features/checkout/presentation/views/widgets/total_price_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import '../../../../../core/utils/styles.dart';
 import 'card_info_widget.dart';
 
 class ThankYouCard extends StatelessWidget {
-  const ThankYouCard({
+   ThankYouCard({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+
+    String formattedTime = DateFormat('hh:mm a').format(now).toString();
+    String formattedDate = DateFormat('MM/dd/yyyy').format(now);
+
     return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
@@ -37,29 +43,29 @@ class ThankYouCard extends StatelessWidget {
             const SizedBox(
               height: 42,
             ),
-            const PaymentItemInfo(
+             PaymentItemInfo(
               title: 'Date',
-              value: '01/24/2023',
+              value: formattedDate,
             ),
             const SizedBox(
               height: 20,
             ),
-            const PaymentItemInfo(
+            PaymentItemInfo(
               title: 'Time',
-              value: '10:15 AM',
+              value:formattedTime ,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            const PaymentItemInfo(
-              title: 'To',
-              value: 'Sam Louis',
-            ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // const PaymentItemInfo(
+            //   title: 'To',
+            //   value: 'Sam Louis',
+            // ),
             const Divider(
               height: 60,
               thickness: 2,
             ),
-            const TotalPrice(title: 'Total', value: r'$50.97'),
+            const TotalPrice(title: 'Total', value: r'$100'),
             const SizedBox(
               height: 30,
             ),
